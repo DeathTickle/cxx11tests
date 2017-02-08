@@ -80,9 +80,12 @@ class MakefileGen:
         self.makefile_header.append("")
 
         # Add directories and executables
-        self.makefile_header.append("ROOT := {}".format(self.root_dir))
-        self.makefile_header.append("SRC := {}".format(self.source_dir))
-        self.makefile_header.append("BLD := {}".format(self.build_dir))
+        self.makefile_header.append(
+                "ROOT := {}".format(self.root_dir.replace(' ', '\ ')))
+        self.makefile_header.append(
+                "SRC := {}".format(self.source_dir.replace(' ', '\ ')))
+        self.makefile_header.append(
+                "BLD := {}".format(self.build_dir.replace(' ', '\ ')))
         self.makefile_header.append("RT := $(ROOT)/runtest.py")
 
         # Add compiler executable if specified
